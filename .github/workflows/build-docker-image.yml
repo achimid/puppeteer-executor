@@ -4,9 +4,6 @@ on: [push]
 jobs:
   build-docker-image:
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: ./puppeteer-executor
 
     steps:
       - uses: actions/checkout@v2
@@ -39,6 +36,5 @@ jobs:
         id: docker_build
         uses: docker/build-push-action@v2
         with:
-          context: ./puppeteer-executor
           push: true
           tags: ${{ secrets.DOCKER_USERNAME }}/puppeteer-executor:latest
