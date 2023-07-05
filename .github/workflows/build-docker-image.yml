@@ -2,7 +2,7 @@ name: build-docker-image
 on: [push]
 
 jobs:
-  java-springboot-tomcat:
+  build-docker-image:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
