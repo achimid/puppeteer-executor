@@ -1,7 +1,6 @@
 package br.com.achimid.puppeteerexecutor.gateway.input.rabbitmq;
 
 import br.com.achimid.puppeteerexecutor.domain.Execution;
-import br.com.achimid.puppeteerexecutor.domain.ExecutionResponse;
 import br.com.achimid.puppeteerexecutor.gateway.output.http.CallbackClient;
 import br.com.achimid.puppeteerexecutor.utils.JsonUtils;
 import lombok.RequiredArgsConstructor;
