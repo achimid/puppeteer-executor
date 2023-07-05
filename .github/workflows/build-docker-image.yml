@@ -14,7 +14,7 @@ jobs:
           java-version: '17'
           distribution: 'adopt'
 
-      - name: Build with Gradle        
+      - name: Build with Gradle
         run: ./gradlew build --no-daemon
 
       - name: List files
@@ -36,5 +36,6 @@ jobs:
         id: docker_build
         uses: docker/build-push-action@v2
         with:
+          context: .
           push: true
           tags: ${{ secrets.DOCKER_USERNAME }}/puppeteer-executor:latest
