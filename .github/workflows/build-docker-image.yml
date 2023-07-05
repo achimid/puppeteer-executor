@@ -4,9 +4,6 @@ on: [push]
 jobs:
   java-springboot-tomcat:
     runs-on: ubuntu-latest
-    defaults:
-        run:
-          working-directory: ./java+springboot+tomcat
     steps:
       - uses: actions/checkout@v2
         name: Set up JDK 17
