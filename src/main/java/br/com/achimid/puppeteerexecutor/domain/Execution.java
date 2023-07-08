@@ -6,6 +6,6 @@ import lombok.Data;
 public class Execution {
 
     private ExecutionRequest request;
-    private ExecutionResponse response;
+    private ExecutionResponse execution;
 
 }

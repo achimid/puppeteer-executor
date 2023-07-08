@@ -2,9 +2,12 @@ package br.com.achimid.puppeteerexecutor.domain;
 
 import lombok.Data;
 
+import java.util.UUID;
+
 @Data
 public class ExecutionRequest {
 
+    private UUID id = UUID.randomUUID();
     private String ref;
     private String url;
     private String script;

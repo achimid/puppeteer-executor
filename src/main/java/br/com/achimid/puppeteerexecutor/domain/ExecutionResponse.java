@@ -1,5 +1,6 @@
 package br.com.achimid.puppeteerexecutor.domain;
 
+import com.fasterxml.jackson.annotation.JsonAlias;
 import lombok.Data;
 
 import java.time.LocalDateTime;
