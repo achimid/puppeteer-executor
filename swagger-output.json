@@ -6,11 +6,11 @@
     "version": "1.0.0"
   },
   "host": [
-    "localhost:3000"
+    "puppeteer-executor.achimid.com.br"
   ],
   "basePath": "/api/v1",
   "schemes": [
-    "http"
+    "https"
   ],
   "paths": {
     "/execution/": {
