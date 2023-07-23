@@ -6,8 +6,8 @@ const doc = {
     description: 'Serviço Web - API Rest - Extração de informação utilizando o puppeteer.',
   },
   basePath: '/api/v1',  
-  host: ['localhost:3000'],
-  schemes: ['http'],
+  host: ['puppeteer-executor.achimid.com.br'],
+  schemes: ['https'],
 };
 
 const outputFile = './swagger-output.json';
