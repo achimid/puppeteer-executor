@@ -1,0 +1,119 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "Puppeteer Executor",
+    "description": "Serviço Web - API Rest - Extração de informação utilizando o puppeteer.",
+    "version": "1.0.0"
+  },
+  "host": [
+    "localhost:3000"
+  ],
+  "basePath": "/api/v1",
+  "schemes": [
+    "http"
+  ],
+  "paths": {
+    "/execution/": {
+      "post": {
+        "tags": [
+          "Execution"
+        ],
+        "summary": "Criar uma execução",
+        "description": "",
+        "parameters": [
+          {
+            "name": "obj",
+            "in": "body",
+            "description": "Some description...",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "url": {
+                  "type": "string",
+                  "example": "https://anifan.com.br/"
+                },
+                "script": {
+                  "type": "string",
+                  "example": "JSON.stringify({url: document.querySelector('a').href})"
+                },
+                "callbackUrl": {
+                  "type": "string",
+                  "example": "https://puppeteer-executor.achimid.com.br/api/v1"
+                },
+                "ref": {
+                  "type": "string",
+                  "example": "123456"
+                },
+                "config": {
+                  "type": "object",
+                  "properties": {
+                    "bypassCSP": {
+                      "type": "boolean",
+                      "example": true
+                    },
+                    "useRandomAgent": {
+                      "type": "boolean",
+                      "example": false
+                    },
+                    "urlProxy": {
+                      "type": "string",
+                      "example": "https://proxy.com"
+                    },
+                    "skipImage": {
+                      "type": "boolean",
+                      "example": false
+                    },
+                    "logConsole": {
+                      "type": "boolean",
+                      "example": false
+                    },
+                    "defaultNavigationTimeout": {
+                      "type": "number",
+                      "example": 3000
+                    },
+                    "addScriptTagUrl": {
+                      "type": "string",
+                      "example": "https://scripturl.com.br"
+                    },
+                    "waitTime": {
+                      "type": "number",
+                      "example": 1000
+                    }
+                  }
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": ""
+          }
+        }
+      }
+    },
+    "/execution/{id}": {
+      "get": {
+        "tags": [
+          "Execution"
+        ],
+        "summary": "Criar uma execução",
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": "Identificado(Id) da execução criada"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    }
+  }
+}
