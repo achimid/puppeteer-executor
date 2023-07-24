@@ -1,3 +1,4 @@
+const fetch = require('node-fetch')
 const router = require('express').Router()
 const { CREATED } = require('http-status-codes').StatusCodes
 
@@ -57,8 +58,21 @@ consumeFromQueue('WORKER_EXECUTION_RESPONSE', (data, ack) => {
     let execution = JSON.parse(content)
     
     collection[execution.request.id] = execution
-    
+
     ack()
+    
+    console.log('Nova execution response', execution.execution.isSuccess, execution.execution.executionTime, execution.request.url)
+
+    if (!!execution.request.callbackUrl) {
+        fetch(execution.request.callbackUrl, {method: 'post', body: JSON.stringify(execution), headers: {'Content-Type': 'application/json'}})
+            .then(res => console.log('Success callbackURL statusCode: ', res.status))
+            .catch(err => console.error('Error on fetch callbackURL', err))
+    }
+
+    setTimeout(() => { 
+        console.log('Limpando response cache de 60s', execution.request.id, execution.request.url)
+        delete collection[execution.request.id] 
+    }, 60000);
 })
 
 module.exports = router
